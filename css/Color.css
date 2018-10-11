@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'OpenSans-Bold';
+  src: url('../Plugins/my-fonts/OpenSans-Bold.ttf');
+}
+@font-face {
+  font-family: 'Raleway-Black-Italic';
+  src: url('../Plugins/my-fonts/raleway-family-v3.0/Raleway-Black-Italic.ttf');
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../Plugins/my-fonts/OpenSans.ttf');
+}
+@font-face {
+  font-family: 'OpenSans-Semibold';
+  src: url('../Plugins/my-fonts/OpenSans-Semibold.ttf');
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('../Plugins/my-fonts/raleway-family-v3.0/Raleway-Medium.ttf');
+}
+@font-face {
+  font-family: 'Raleway-Light';
+  src: url('../Plugins/my-fonts/raleway-family-v3.0/Raleway-Light.ttf');
+}
+@font-face {
+  font-family: 'Raleway-Bold';
+  src: url('../Plugins/my-fonts/raleway-family-v3.0/Raleway-Bold.ttf');
+}
+@font-face {
+  font-family: 'Raleway-Regular';
+  src: url('../Plugins/my-fonts/raleway-family-v3.0/Raleway-Regular.ttf');
+}

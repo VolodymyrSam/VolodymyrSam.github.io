@@ -1,0 +1,22 @@
+<script type="text/javascript">
+        
+    </script>
+
+        <div class="basement1">
+            <div class="row">
+            <div class=" div3">
+                <div class="font3 col-xs-4">Social Media
+                    <br/>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    <br/>Aenean euismod bibendum laoreet.</span>
+                </div>
+                <div class="col-xs-1 icon Facebook"></div>
+                <div class="col-xs-1 icon Twiter"></div>
+                <div class="col-xs-1 icon Google"></div>
+                <div class="col-xs-1 icon P"></div>
+                <div class="col-xs-1 icon Instagram"></div>
+                <div class="col-xs-1 icon Zmei"></div>
+                <div class="col-xs-1 icon Wifi"></div>
+            </div>
+            </div>
+        </div>
