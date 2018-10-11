@@ -1,3 +1,7 @@
+Заливка проэкта на существующий репозиторий с последующим размещением комитов
+git rebase origin/master
+git push --set-upstream origin master
+
 <script type="text/javascript">
         
     </script>
