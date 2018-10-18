@@ -429,6 +429,11 @@ button.Mbtn1 {
 }
 .div5 {
     margin-top: 130px;
+    & > p:first-child{
+    font-weight: 800;
+    font-size: 20px;
+    font-family: 'OpenSans-Bold', sans-serife;
+    }
     .line {
         border-color: @color1;
         margin: 26px 0;
@@ -594,7 +599,7 @@ button.Mbtn1 {
         height: @height_button_scroll;
 //        top: 0;
         background-color: green;
-        border: 0px solid #a4a5a8;
+        border: 0px solid green;
         &:active {
             outline: 0!important;
             outline-offset: 0;
@@ -604,6 +609,7 @@ button.Mbtn1 {
 //        display: block;
         right: 0px;
         bottom: 0px !important;
+        box-sizing: border-box;
         &:extend(.MyScroll .BtnUp);
         &:active {
             outline: 0!important;

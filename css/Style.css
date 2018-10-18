@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=cyrillic');
 @font-face {
   font-family: 'OpenSans-Bold';
   src: url('../Plugins/my-fonts/OpenSans-Bold.ttf');
@@ -442,6 +443,11 @@ button.Mbtn1.M-active:focus {
 .div5 {
   margin-top: 130px;
 }
+.div5 > p:first-child {
+  font-weight: 800;
+  font-size: 20px;
+  font-family: 'OpenSans-Bold', sans-serife;
+}
 .div5 .line {
   border-color: #ff9b51;
   margin: 26px 0;
@@ -602,7 +608,7 @@ button.Mbtn1.M-active:focus {
   background-color: red;
   color: white;
   z-index: 1999px;
-  border-radius: 10px;
+  border-radius: 7px;
   padding: 0;
   font-size: 18px;
   line-height: 25px;
@@ -611,7 +617,7 @@ button.Mbtn1.M-active:focus {
 .MyScroll .BtnDown {
   height: 25px;
   background-color: green;
-  border: 1px solid #a4a5a8;
+  border: 0px solid green;
 }
 .MyScroll .BtnUp:active {
   outline: 0!important;
@@ -620,6 +626,8 @@ button.Mbtn1.M-active:focus {
 .MyScroll .BtnDown {
   right: 0px;
   bottom: 0px !important;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .MyScroll .BtnDown:active {
   outline: 0!important;
