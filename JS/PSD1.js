@@ -207,6 +207,7 @@ console.log(VarScrollSliderStyle);
 // Движение ползунка
 VarScrollSlider.onmousedown = function(e) {
   var Coords = getCoords(VarScrollSlider);
+  var OutCoords = getCoords(VarScrolloutfield);
   var shiftY = e.pageY - Coords.top;
 
   VarScrollSlider.style.position = 'relative';
@@ -215,7 +216,7 @@ VarScrollSlider.onmousedown = function(e) {
   VarScrollSlider.style.zIndex = 2100;
   document.onmousemove = function(e) {
     //  вычесть координату родителя, т.к. position: relative
-    var newtop = e.pageY - shiftY;
+    var newtop = e.pageY - shiftY - OutCoords.top;
 
     // курсор ушёл вне слайдера
     if (newtop < 0) {
