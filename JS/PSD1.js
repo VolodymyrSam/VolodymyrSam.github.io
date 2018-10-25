@@ -176,7 +176,8 @@ function FunScrollBtnDown4() {
 
 // высота кнопок
 //1 var VarScrollbtnheight = getComputedStyle(VarScrollBtnUp).lineHeight;
- var VarScrollbtnheight = $("#ScrollBtnUp").outerHeight();
+ // var VarScrollbtnheight = $("#ScrollBtnUp").outerHeight();
+ var VarScrollbtnheight = document.getElementById('ScrollBtnUp').offsetHeight;
 // высота екрана страницы
 var Varscreenheight = document.body.clientHeight;
 // высота области движения скрола - оболочка скрола
