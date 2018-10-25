@@ -120,6 +120,7 @@ var VarScrollBtnDown = document.getElementById('ScrollBtnDown');
 VarScrollBtnUp.addEventListener('mousedown', FunScrollBtnUp4);
 VarScrollBtnDown.addEventListener('mousedown', FunScrollBtnDown4);
 
+// попытка обьединить кнопки:
 //function FunScrollBtnUp(Down) {
 //  alert(Down);
 //  VarScrollBtnUp.classList.add('move');
@@ -172,17 +173,80 @@ function FunScrollBtnDown4() {
       }
   }, 400);
 }
-//function FunScrollBtnUp2() {
-//  if (VarScrollBtnUp.classList.contains('move')) {
-//  window.scrollBy(0, -8);
-//  setTimeout(FunScrollBtnUp2, 8);
-//  }
-//  }
 
-var Varscrollheight = 0;
-var VarScreenheight = 0;
-var Varscrollregion = 0;
+// высота кнопок
+//1 var VarScrollbtnheight = getComputedStyle(VarScrollBtnUp).lineHeight;
+ var VarScrollbtnheight = $("#ScrollBtnUp").outerHeight();
+// высота екрана страницы
+var Varscreenheight = document.body.clientHeight;
+// высота области движения скрола - оболочка скрола
+var Varscrollregion = Varscreenheight-(2*VarScrollbtnheight);
+var VarScrolloutfield = document.getElementById('Scrollfield');
+VarScrolloutfield.style.height = Varscrollregion + "px";
+// высота всего документа
+var Varpageheight = document.documentElement.clientHeight;
+// высота скрола
+// если область движения - это высота страницы
+// то высота скрола - это высота екрана
+var Varscrollheight = Varscreenheight*Varscrollregion/Varpageheight;
+// Размер области движения скрола
+var VarscrollregionMove = Varscreenheight-(2*VarScrollbtnheight+Varscrollheight);
+
+// Скрол
+var VarScrollSlider = document.getElementById('ScrollBtnSlider');
+// Придаем скролу высоту
+VarScrollSlider.style.height = Varscrollheight;
+
+var VarScrollSliderStyle = getComputedStyle(VarScrollSlider);
+console.log(VarScrollSliderStyle);
 
 
 
+
+// Движение ползунка
+VarScrollSlider.onmousedown = function(e) {
+  var Coords = getCoords(VarScrollSlider);
+  var shiftY = e.pageY - Coords.top;
+
+  VarScrollSlider.style.position = 'relative';
+  VarScrolloutfield.appendChild(VarScrollSlider);
+
+  VarScrollSlider.style.zIndex = 2100;
+  document.onmousemove = function(e) {
+    //  вычесть координату родителя, т.к. position: relative
+    var newtop = e.pageY - shiftY;
+
+    // курсор ушёл вне слайдера
+    if (newtop < 0) {
+      newtop = 0;
+    }
+    var bottomEdge = VarScrolloutfield.offsetHeight - VarScrollSlider.offsetHeight;
+    if (newtop > bottomEdge) {
+      newtop = bottomEdge;
+    }
+    VarScrollSlider.style.top = newtop + 'px';
+    }
+
+  document.onmouseup = function() {
+    document.onmousemove = document.onmouseup = null;
+  };
+  return false; // disable selection start (cursor change)
+};
+
+VarScrollSlider.ondragstart = function() {
+  return false;
+};
+function getCoords(elem) { // кроме IE8-
+  var box = elem.getBoundingClientRect();
+  return {
+    top: box.top + pageYOffset,
+    left: box.left + pageXOffset
+  };
+}
+ 
+console.log(VarScrollbtnheight);
+console.log(Varscreenheight);
+console.log(Varscrollregion);
+console.log(Varscrollheight);
+console.log(VarscrollregionMove);
 

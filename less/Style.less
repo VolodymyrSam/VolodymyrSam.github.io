@@ -587,18 +587,19 @@ button.Mbtn1 {
     position: fixed;
     display: block;
     right: 0;
-    background-color: red;
-    color: white;
+    background-color: @color2;;
+    color: @color2;
     z-index: 1999px;
     border-radius: @width_scroll/2;
     padding: 0;
     font-size: 18px;
+    font-weight: 800;
     line-height: @height_button_scroll;
     .BtnUp {
         &:extend(.MyScroll);
+        box-sizing: border-box;
         height: @height_button_scroll;
-//        top: 0;
-        background-color: green;
+        background-color: @color3;
         border: 0px solid green;
         &:active {
             outline: 0!important;
@@ -606,28 +607,41 @@ button.Mbtn1 {
         }
     }
     .BtnDown {
-//        display: block;
         right: 0px;
         bottom: 0px !important;
-        box-sizing: border-box;
         &:extend(.MyScroll .BtnUp);
         &:active {
             outline: 0!important;
             outline-offset: 0;
         }
     }
-    .Slider {
-        position: absolute;
-        width: @width_scroll;
-        height: @height_scroll;
+    #Scrollfield {
+        position: fixed;
+        width: 100%;
+        min-height: @height_scroll;
         top: @height_button_scroll;
-        border: 1px solid #a4a5a8;
+        background-color: transparent;
+        .Slider {                                   
+        position: relative;
+        display: block;
+        width: @width_scroll;
+        min-height: @height_scroll;
+        top: 0;
+        border: 0px solid #a4a5a8;
         border-radius: @width_scroll/2;
-        &:active {
-            outline: 0!important;
-            outline-offset: 0;
-            
+        background-color: @color3;
+        z-index: 2100;
+        //content: " ";
+        //&:active {
+        //    outline: 0!important;
+        //    outline-offset: 0;
+        //    
+        //}
         }
     }
 }
+//.SliderClone {
+
+//}
+
 

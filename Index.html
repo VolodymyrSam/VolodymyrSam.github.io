@@ -9,7 +9,7 @@
         <meta name="keywords" content="Вебсайт приложения программы ">
         <meta name="description" content="Landing Page Website Программа">
         <meta name="author" content="Программа">    
-        <link rel="shortcut icon" href="icon.ico"> <!-- Иконка вкладки -->
+        <!--<link rel="shortcut icon" href="icon.ico"> <!- Иконка вкладки -->
         <!-- Гугл шрифты -->
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -28,14 +28,15 @@
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <link id="" rel="stylesheet" href="css/animate.css">
         
     </head>
     <body class="center-block">
-            <div class="MyScroll">
+            <div class="MyScroll" id="MyScroll">
                     <button class="BtnUp" id="ScrollBtnUp">
                         &#11014
                     </button>
-                    <button class="Slider" id="ScrollBtnSlider"></button>
+                    <div id="Scrollfield"><div class="Slider" id="ScrollBtnSlider"></div></div>
                     <button class="BtnDown" id="ScrollBtnDown">
                         &#11015
                     </button>
@@ -61,13 +62,13 @@
                 <div class="font2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
                 <br/>euismod bibendum laoreet. Proin gravida dolor sit amet lacus
                 <br/>accumsan et viverra justo commodo.</div>
-                <button class="button2">Download</button>
+                <button class="button2 wow fadeInLeft">Download</button>
 
                 <form class="form1" id="form1" action="form_user.php">
                     <div class="form_text1">Try Your <span>FREE</span> Trial Today</div>
-                    <input tipe="text" id="FontName" placeholder="Name" name="user_name">
-                    <input tipe="text" placeholder="Email" name="user_email">
-                    <input tipe="text" placeholder="Password" name="user_password">
+                    <input tipe="text" id="FontName" placeholder="Name" name="user_name" required>
+                    <input tipe="text" placeholder="Email" name="user_email" id="email" required>
+                    <input tipe="text" placeholder="Password" name="user_password" required>
                     <button tipe="submit" class="button3">Get Started</button>
                 </form>
         </div>
@@ -221,10 +222,20 @@
         </div>
         
     </div>
-      
     
-
-    <script defer src="JS/PSD1.js"></script> 
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <!-- <script  src="JS/jquery.maskedinput.min.js"></script> -->
+    <script defer src="JS/PSD1.js"></script>
+    
+    <!--<script>
+        // jQuery(function($){
+        //     $("#email").mask("a@a");
+        // });
+    </script> 
+    <script src="JS/wow.min.js"></script> 
+    <script>
+        new WOW().init();
+    </script> -->
 
     </body>
 </html>
