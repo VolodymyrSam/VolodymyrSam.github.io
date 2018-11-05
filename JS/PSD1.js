@@ -29,19 +29,10 @@ document.getElementById('FontName').focus();
   document.getElementById('Btn-to-About').addEventListener('click', goAbout);
   function goAbout() {
     var idTimer1;
-      function getCoords(elem) { // кроме IE8-
-        var box = elem.getBoundingClientRect();
-        return {
-          top: box.top + pageYOffset,
-          left: box.left + pageXOffset
-        };
-      }
     var windowCoords = getCoords(document.getElementById('About')).top;
-//    alert(+windowCoords);
-//    alert(+window.pageYOffset);
 
       (function Myscroll() {
-        if (+window.pageYOffset < +windowCoords) {
+        if (window.pageYOffset < windowCoords) {
           window.scrollBy(0, 4);
           setTimeout(Myscroll, 5);
         }
@@ -53,9 +44,6 @@ document.getElementById('FontName').focus();
   }
 // Кнопка быстрого перехода 
   function goFeaturis() {
-//    alert( 'Спасибо' );
-//  alert(document.getElementById('Btn-to-Featutis').focus);
-//  alert(document.getElementById('Featuris'));
   document.getElementById('Featuris').scrollIntoView(true);
   }  
 //============================================================
@@ -114,30 +102,12 @@ function FunButton2Click() {
 // Скрол: слайдер и кнопки
 var Down = 0;
 var TimerUp1 = 0;
+var TimerClick1 = 0;
 var VarScrollBtnUp = document.getElementById('ScrollBtnUp');
 var VarScrollBtnDown = document.getElementById('ScrollBtnDown');
 
 VarScrollBtnUp.addEventListener('mousedown', FunScrollBtnUp4);
 VarScrollBtnDown.addEventListener('mousedown', FunScrollBtnDown4);
-
-// попытка обьединить кнопки:
-//function FunScrollBtnUp(Down) {
-//  alert(Down);
-//  VarScrollBtnUp.classList.add('move');
-//  if (Down) {
-//    window.scrollBy(0,6); } else {
-//      window.scrollBy(0,-6);
-//    }
-//  var TimerUp1 = setTimeout(function FunScrollBtnUp3() {
-//    if (VarScrollBtnUp.classList.contains('move')) {
-//      if (Down) {
-//        window.scrollBy(0, 4); } else {
-//        window.scrollBy(0, -4);
-//        }
-//      TimerUp1 = setTimeout(FunScrollBtnUp3, 8);
-//      }
-//  }, 400);
-//}
 
 // Кнопка вверх
 VarScrollBtnUp.addEventListener('mouseup', FunScrollBtnUpEnd);
@@ -151,8 +121,8 @@ function FunScrollBtnUp4() {
   clearTimeout(TimerUp1);
   TimerUp1 = setTimeout(function FunScrollBtnUp5() {
     if (VarScrollBtnUp.classList.contains('move')) {
-      window.scrollBy(0, -4);
-      TimerUp1 = setTimeout(FunScrollBtnUp5, 8);
+      window.scrollBy(0, -3);
+      TimerUp1 = setTimeout(FunScrollBtnUp5, 4);
       }
   }, 400);
 }
@@ -168,8 +138,8 @@ function FunScrollBtnDown4() {
   clearTimeout(TimerUp1);
   TimerUp1 = setTimeout(function FunScrollBtnDown5() {
     if (VarScrollBtnDown.classList.contains('move')) {
-      window.scrollBy(0, 4);
-      TimerUp1 = setTimeout(FunScrollBtnDown5, 8);
+      window.scrollBy(0, 3);
+      TimerUp1 = setTimeout(FunScrollBtnDown5, 4);
       }
   }, 400);
 }
@@ -185,30 +155,35 @@ var Varscrollregion = Varscreenheight-(2*VarScrollbtnheight);
 var VarScrolloutfield = document.getElementById('Scrollfield');
 VarScrolloutfield.style.height = Varscrollregion + "px";
 // высота всего документа
-var Varpageheight = document.documentElement.clientHeight;
+var Varpageheight = $(document).height();
+//document.documentElement.clientHeight || document.body.clientHeight || window.innerHeight;
 // высота скрола
 // если область движения - это высота страницы
 // то высота скрола - это высота екрана
+//var Varscrollheight = Varscreenheight*Varscrollregion/Varpageheight;
 var Varscrollheight = Varscreenheight*Varscrollregion/Varpageheight;
 // Размер области движения скрола
+// Если размер области движения - это высота страницы(минус экран)
+// то отступ скрола - это прокрутка страницы
+// Просчет в цикле движения ниже Метка 1
 var VarscrollregionMove = Varscreenheight-(2*VarScrollbtnheight+Varscrollheight);
 
 // Скрол
 var VarScrollSlider = document.getElementById('ScrollBtnSlider');
 // Придаем скролу высоту
-VarScrollSlider.style.height = Varscrollheight;
+VarScrollSlider.style.height = Varscrollheight + "px";
 
 var VarScrollSliderStyle = getComputedStyle(VarScrollSlider);
-console.log(VarScrollSliderStyle);
-
-
+console.log(Varscreenheight);
+console.log(Varpageheight);
+console.log(Varscrollregion);
 
 
 // Движение ползунка
 VarScrollSlider.onmousedown = function(e) {
   var Coords = getCoords(VarScrollSlider);
   var OutCoords = getCoords(VarScrolloutfield);
-  var shiftY = e.pageY - Coords.top;
+  var shiftY = e.clientY - Coords.top;
 
   VarScrollSlider.style.position = 'relative';
   VarScrolloutfield.appendChild(VarScrollSlider);
@@ -216,7 +191,7 @@ VarScrollSlider.onmousedown = function(e) {
   VarScrollSlider.style.zIndex = 2100;
   document.onmousemove = function(e) {
     //  вычесть координату родителя, т.к. position: relative
-    var newtop = e.pageY - shiftY - OutCoords.top;
+    var newtop = e.clientY - shiftY - OutCoords.top;
 
     // курсор ушёл вне слайдера
     if (newtop < 0) {
@@ -227,7 +202,12 @@ VarScrollSlider.onmousedown = function(e) {
       newtop = bottomEdge;
     }
     VarScrollSlider.style.top = newtop + 'px';
-    }
+  
+    // движение страницы Метка 1
+    var newscroll = newtop*(Varpageheight-Varscreenheight)/VarscrollregionMove;
+    window.scrollTo(0,newscroll);
+  
+  }
 
   document.onmouseup = function() {
     document.onmousemove = document.onmouseup = null;
@@ -235,9 +215,57 @@ VarScrollSlider.onmousedown = function(e) {
   return false; // disable selection start (cursor change)
 };
 
+// Прокрутка на указанное место
+VarScrolloutfield.onmousedown = function(e){
+  var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+  var Coords = getCoords(VarScrollSlider);
+  var OutCoords = getCoords(VarScrolloutfield);
+  //var shiftY = e.pageY - Coords.top;
+  var newtop = e.pageY - OutCoords.top - Varscrollheight/2;
+  var newscroll = newtop*(Varpageheight-Varscreenheight)/VarscrollregionMove;
+  // защита прыжка от нажатия по ползунку
+  if(e.clientY < (Coords.top - scrolled) || e.clientY > (Coords.top - scrolled + Varscrollheight)){
+
+    //var windowCoords = getCoords(document.getElementById('About')).top;
+
+    
+    VarScrolloutfield.classList.add('move');
+    if(e.clientY < (Coords.top - scrolled)){
+    var course = -25;
+    }
+    if(e.clientY > (Coords.top - scrolled + Varscrollheight)){
+      course = 25;
+      }
+
+      window.scrollBy(0, course);
+  clearTimeout(TimerClick1);
+  TimerClick1 = setTimeout(function FunScrollBtnDown5() {
+    if (VarScrolloutfield.classList.contains('move')) {
+      if(e.clientY < (getCoords(VarScrollSlider).top - window.pageYOffset) || e.clientY > (getCoords(VarScrollSlider).top - window.pageYOffset + Varscrollheight)){
+      window.scrollBy(0, course);
+
+      TimerClick1 = setTimeout(FunScrollBtnDown5, 4);
+      }
+      }
+  }, 40);
+
+  } 
+}
+VarScrolloutfield.addEventListener('mouseup', FunScrollClickEnd);
+function FunScrollClickEnd() {
+  VarScrolloutfield.classList.remove("move");
+}
+
+// Прокрутка страницы
+window.onscroll = function() {
+  var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+  VarScrollSlider.style.top = (scrolled*VarscrollregionMove/(Varpageheight-Varscreenheight)) + 'px';
+}
+
 VarScrollSlider.ondragstart = function() {
   return false;
 };
+
 function getCoords(elem) { // кроме IE8-
   var box = elem.getBoundingClientRect();
   return {
@@ -246,9 +274,4 @@ function getCoords(elem) { // кроме IE8-
   };
 }
  
-console.log(VarScrollbtnheight);
-console.log(Varscreenheight);
-console.log(Varscrollregion);
-console.log(Varscrollheight);
-console.log(VarscrollregionMove);
 

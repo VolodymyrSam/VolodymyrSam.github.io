@@ -48,6 +48,7 @@ a:focus {
 }
 body {
   width: 1400px;
+  overflow-y: hidden;
 }
 .div0 {
   position: relative;
@@ -645,7 +646,6 @@ button.Mbtn1.M-active:focus {
   position: relative;
   display: block;
   width: 16px;
-  min-height: 32px;
   top: 0;
   border: 0px solid #a4a5a8;
   border-radius: 8px;
