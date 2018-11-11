@@ -88,7 +88,7 @@ button:active {
     margin-left: 40px;
     line-height: 70px;
     font-weight: 500;
-    color: #fff;
+    color: @colorBtnheader;
     background-color: unset;
     border: 0px solid red;
     &:hover {
@@ -104,7 +104,7 @@ button:active {
     width: 67px;
     height: 1px;
     border-bottom: 2px solid;
-    border-color: #454545;
+    border-color: @colorline1;
     margin: 36px 0px;
 
 } 
@@ -123,7 +123,7 @@ button:active {
     position: relative;
     width: 140px;
     height: 42px;
-    border: 2px solid #000000;
+    border: 2px solid #fff;
     line-height: 37px;
     text-align: center;
     font-weight: 700;
@@ -140,8 +140,8 @@ button:active {
         width:21px;
         border-top:0;
         border-right:0;
-        border-bottom:3px solid #000;
-        border-left:3px solid #000;
+        border-bottom:3px solid #fff;
+        border-left:3px solid #fff;
         transition: 0.1s linear;
         transform: translateX(36px) translateY(5px) scale(0.8) rotate(-45deg);
         opacity: 0;
@@ -156,7 +156,7 @@ button:active {
 //    display: block;
     width: 1400px;
     height: 643px;
-    background-image: url(../Img/009.jpg);
+    background-image: url(../Img/BgScreen1.png);
 }
 .list1 {
     width: 550px;
@@ -164,6 +164,7 @@ button:active {
     display: block;
     position: relative;
     margin-left: 150px;
+    color: @colortextscreen1;
     .AXIT { 
         font-size: @font_size2;
         margin-top: 100px;
@@ -174,6 +175,10 @@ button:active {
     }
     .font1 {
         font-size: @font1_size1;
+    }
+    .font2 {
+        color: @colorBtnheader;
+
     }
 
 }
@@ -232,6 +237,7 @@ button:active {
     text-align: center;
     line-height: 54px;
     border-radius: 5px 5px 0 0;
+    color: #000;
     span {
         color: @color1;
     }
@@ -270,7 +276,7 @@ button:active {
 }
 .icon {
     display: inline-block;
-    background-image: url(../Img/Axit-Screenshot.png);
+    background-image: url(../Img/BgAll.png);
     width: 1400px;
     height: 5612px;
 }
@@ -600,7 +606,7 @@ button.Mbtn1 {
         &:extend(.MyScroll);
         box-sizing: border-box;
         height: @height_button_scroll;
-        background-color: @color3;
+        background-color: @colorscroll;
         border: 0px solid green;
         &:active {
             outline: 0!important;
@@ -630,7 +636,7 @@ button.Mbtn1 {
         top: 0;
         border: 0px solid #a4a5a8;
         border-radius: @width_scroll/2;
-        background-color: @color3;
+        background-color: @colorscroll;
         z-index: 2100;
         //content: " ";
         //&:active {
@@ -641,8 +647,6 @@ button.Mbtn1 {
         }
     }
 }
-//.SliderClone {
 
-//}
 
 
