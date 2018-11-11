@@ -33,7 +33,7 @@ document.getElementById('FontName').focus();
 
       (function Myscroll() {
         if (window.pageYOffset < windowCoords) {
-          window.scrollBy(0, 6);
+          window.scrollBy(0, 12);
           setTimeout(Myscroll, 4);
         }
        if (window.pageYOffset > windowCoords) {

@@ -6,24 +6,23 @@ a.active:focus,
 a.focus,
 a:active.focus,
 a:active:focus,
-a:focus {
-//button.active.focus,
-//button.active:focus,
-//button.focus,
-//button:active.focus,
-//button:active:focus,
-//button:focus,
-//.btn.active.focus,
-//.btn.active:focus,
-//.btn.focus,
-//.btn:active.focus,
-//.btn:active:focus,
-//.btn:focus {
+a:focus,
+button.active.focus,
+button.active:focus,
+button.focus,
+button:active.focus,
+button:active:focus,
+button:focus,
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus {
 outline: 0!important;
-outline-color: transparent!important;
+outline-color: transparent !important;
 outline-width: 0!important;
-outline-style: none!important;
-//box-shadow: 0 0 0 0 rgba(0,123,255,0)!important;
+outline-style: none !important;
 }
 
 *{
@@ -37,10 +36,6 @@ body {
     position: relative;
     display: block;
 }
-//button:focus {
-//    outline: 0;
-//    outline-offset:0
-//}
 button:active {
     outline: 0;
     outline-offset:0
@@ -95,7 +90,7 @@ button:active {
         text-decoration: underline;
     }
     &:active {
-        color: blue;
+        color: @color3;
     }
 }
 .line {
@@ -352,52 +347,59 @@ button:active {
         cursor: default;
     }
 }
-button.Mbtn1 {
+
+.btn.Mbtn1 {
     border-left: 0px solid;
     border-right: 0px solid;
     color: #fff;
     background-color: #000000;
-    border-bottom: 1px solid #f5f5f5;
+    border-bottom: 2px solid #f5f5f5;
+    margin-top: 0px !important;
     &:hover {
         background-color: #454545;
+        border-bottom: 2px solid #f5f5f5;
+        box-shadow: 0;
+        outline: 0;
+    }
+    &:active {
+        background-color: #454545;
+        color: @color1;
+        border-bottom: 2px solid #f5f5f5;
+        box-shadow: 0;
+        outline: 0;
+    }
+    &:focus {
+        border-bottom: 2px solid #f5f5f5;
     }
     &.M-active {
         background-color: @color1;
+        border-bottom: 2px solid #f5f5f5;
+        box-shadow: 0;
+        outline: 0;
     }
     &.M-active:hover {
     background-color: @color1;
+    border-top: 0;
+    box-shadow: 0 0 0 0;
     color: #fff;
     cursor: default;
+    border-bottom: 2px solid #f5f5f5;
+    outline: 0;
     }
     &.M-active:active {
         background-color: @color1;
+        box-shadow: 0 0 0 0;
+        border-top: 0;
         color: #fff;
+        border-bottom: 2px solid #f5f5f5;
     }
     &.M-active:focus {
         background-color: @color1;
+        box-shadow: 0 0 0 0;
+        border-top: 0;
         color: #fff;
+        border-bottom: 2px solid #f5f5f5;
     }
-}
-.btn-default.Mbtn1:active {
-    box-shadow: 0;
-    outline: 0;
-    color: @color1;
-    background-color: #454545;
-}
-.btn-default.Mbtn1:focus {
-    box-shadow: 0;
-    outline: 0;
-    color: #fff;
-    background-color: #000000;
-}
-.btn-default.Mbtn1.M-active:focus {
-    box-shadow: 0;
-    outline: 0;
-    color: #fff;
-    background-color: @color1;
-}
-.btn-default.Mbtn1 {
-    border-bottom: 1px solid #a4a5a8;
 }
 .btn-orang {
     color: #fff;
@@ -647,6 +649,3 @@ button.Mbtn1 {
         }
     }
 }
-
-
-
