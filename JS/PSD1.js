@@ -47,45 +47,10 @@ document.getElementById('FontName').focus();
   document.getElementById('Featuris').scrollIntoView(true);
   }  
 //============================================================
-
-// Попытки убрать фокус
-
-//alert(document.getElementsByClassName('open-contact')[0]);
-//  if(document.getElementsByClassName('open-contact')[0]) {
-//    window.open('http://vvvua.zzz.com.ua'); }
-
-//document.body.children[0].removeChild(document.querySelector('.header1'));
-
-//var selectedBtn;
-//var VarDiv1 = document.querySelector('.div1');
-//VarDiv1.onclick = function(event) {
-//  var target = event.target;
-//  if (target.tagName != 'button') return;
-//  AftetClick (target);
-//}
-//}
-
-//Vardiv1.onclick = function(event) {
-//  var target = event.target;
-//
-//  // цикл двигается вверх от target к родителям до div1
-//  while (target != VarDiv1) {
-//    if (target.tagName == 'button') {
-//      // нашли элемент, который нас интересует!
-//      AfterClick(target);
-//      return;
-//    }
-//    target = target.parentNode;
-//  }
-
-//  function AfterClick(node) {
-//      if(selectedBtn) {
-//        selectedBtn.classlist.remove('AfterClick');
-//      }
-//      selectedBtn = node;
-//      selectedBtn.classlist.add('AfrerClick');
-//    }
-//}
+// Кнопка контактов
+function funOpenContact() {
+ if(document.getElementsByClassName('open-contact')[0]) {
+   window.open('http://vvvua.zzz.com.ua'); } }
 
 // Кнопка скачать с мигающей галочкой
 var VarButton2 = document.querySelector('.button2');
@@ -100,6 +65,7 @@ function FunButton2Click() {
 };
 
 // Скрол: слайдер и кнопки
+
 var Down = 0;
 var TimerUp1 = 0;
 var TimerClick1 = 0;
@@ -170,6 +136,19 @@ var VarscrollregionMove = Varscreenheight-(2*VarScrollbtnheight+Varscrollheight)
 
 // Скрол
 var VarScrollSlider = document.getElementById('ScrollBtnSlider');
+
+$(window).resize(function() {
+  var VarScrollbtnheight = document.getElementById('ScrollBtnUp').offsetHeight;
+  var Varscreenheight = document.body.clientHeight;
+  var Varscrollregion = Varscreenheight-(2*VarScrollbtnheight);
+var VarScrolloutfield = document.getElementById('Scrollfield');
+VarScrolloutfield.style.height = Varscrollregion + "px";
+var Varpageheight = $(document).height();
+var Varscrollheight = Varscreenheight*Varscrollregion/Varpageheight;
+var VarscrollregionMove = Varscreenheight-(2*VarScrollbtnheight+Varscrollheight);
+VarScrollSlider.style.height = Varscrollheight + "px";
+});
+
 // Придаем скролу высоту
 VarScrollSlider.style.height = Varscrollheight + "px";
 
@@ -257,10 +236,14 @@ function FunScrollClickEnd() {
 }
 
 // Прокрутка страницы
-window.onscroll = function() {
+// window.onscroll = function() {
+//   var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+//   VarScrollSlider.style.top = (scrolled*VarscrollregionMove/(Varpageheight-Varscreenheight)) + 'px';
+// }
+$(window).scroll(function() {
   var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-  VarScrollSlider.style.top = (scrolled*VarscrollregionMove/(Varpageheight-Varscreenheight)) + 'px';
-}
+VarScrollSlider.style.top = (scrolled*VarscrollregionMove/(Varpageheight-Varscreenheight)) + 'px';
+ });
 
 VarScrollSlider.ondragstart = function() {
   return false;

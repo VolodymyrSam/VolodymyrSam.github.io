@@ -35,7 +35,12 @@ body {
 .div0 {
     position: relative;
     display: block;
+    z-index: 49;
+    &:focus {
+        z-index: 48;
+    }
 }
+
 button:active {
     outline: 0;
     outline-offset:0
@@ -152,6 +157,7 @@ button:active {
     width: 1400px;
     height: 643px;
     background-image: url(../Img/BgScreen1.png);
+    z-index: 50;
 }
 .list1 {
     width: 550px;
@@ -248,6 +254,7 @@ button:active {
     height: 105px;
     box-sizing: border-box;
     padding-left: 10%;
+    z-index: 50;
 }
 .div3 {
     display: block;
@@ -334,6 +341,7 @@ button:active {
     height:600px;
     background-color: #f5f5f5;
     padding-top: 135px;
+    z-index: 53;
     .btn-group-vertical {
         float: left;
         button {
@@ -428,6 +436,7 @@ button:active {
     width: 1400px;
     height: 600px;
     padding-left: 10%;
+    z-index: 54;
 }
 .div4 {
     background-position: -152px 4074px;
@@ -471,6 +480,7 @@ button:active {
     background-color: #f5f5f5;
     padding-left: 10%;
     padding-top: 105px;
+    z-index: 55;
 }
 .header4 {
     & > p:nth-child(1) {
@@ -598,7 +608,7 @@ button:active {
     right: 0;
     background-color: @color2;;
     color: @color2;
-    z-index: 1999px;
+    z-index: 11999;
     border-radius: @width_scroll/2;
     padding: 0;
     font-size: 18px;
@@ -610,6 +620,7 @@ button:active {
         height: @height_button_scroll;
         background-color: @colorscroll;
         border: 0px solid green;
+        z-index: 12100;
         &:active {
             outline: 0!important;
             outline-offset: 0;
@@ -639,7 +650,7 @@ button:active {
         border: 0px solid #a4a5a8;
         border-radius: @width_scroll/2;
         background-color: @colorscroll;
-        z-index: 2100;
+        z-index: 12100;
         //content: " ";
         //&:active {
         //    outline: 0!important;
@@ -647,5 +658,11 @@ button:active {
         //    
         //}
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .MyScroll {
+        display: none;
     }
 }
