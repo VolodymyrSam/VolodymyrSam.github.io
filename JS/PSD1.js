@@ -18,6 +18,7 @@ var MaxscrollHeight = Math.max(
 var MinsclientHinnerH = Math.min(document.body.clientHeight, window.innerHeight);
 var MaxsclientHinnerH = Math.max(document.body.clientHeight, window.innerHeight);
 var MinsclientWinnerW = Math.min(document.body.clientWidth, window.innerWidth);
+var MaxsclientWinnerW = Math.max(document.body.clientWidth, window.innerWidth);
 
 document.body.style.height = MaxscrollHeight;
 // Как бы высота страницы, но на самом деле высота контента div0
@@ -27,8 +28,8 @@ var Vardiv0 = document.getElementById('div0');
 Vardiv0.style.height = MaxsclientHinnerH + 0 + "px";
 var Varpageheight = Vardiv0.scrollHeight;
 if(MinsclientWinnerW < 1400){
-  document.body.style.width = document.body.clientWidth;
-  Vardiv0.style.width = (document.body.clientWidth + 33 + "px");
+  document.body.style.width = MinsclientWinnerW;
+  Vardiv0.style.width = (MinsclientWinnerW+ 33 + "px");
   Vardiv0.style.height = (MinsclientHinnerH + 17 + "px");
 } else {
   document.body.style.width = 1400;
