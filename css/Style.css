@@ -58,17 +58,30 @@ button:focus,
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+html {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
 body {
   width: 1400px;
+  height: 800px;
+  margin: 0 auto;
   overflow-y: hidden;
+  overflow-x: hidden;
 }
 .div0 {
   position: relative;
   display: block;
+  width: 1433px;
+  height: 817px;
   z-index: 49;
+  border: 0px solid #000;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 .div0:focus {
   z-index: 48;
+  outline: 0;
 }
 button:active {
   outline: 0;
@@ -117,7 +130,7 @@ button:active {
   line-height: 70px;
   font-weight: 500;
   color: #b7b7b7;
-  background-color: unset;
+  background-color: transparent;
   border: 0px solid red;
 }
 .button1:hover {
@@ -156,7 +169,7 @@ button:active {
   font-weight: 700;
   margin-top: 45px;
   padding-bottom: 4px;
-  background-color: unset;
+  background-color: transparent;
 }
 .button2::after {
   position: absolute;
