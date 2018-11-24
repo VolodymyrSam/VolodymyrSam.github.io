@@ -334,14 +334,49 @@ var scrollHeight = Math.max(
   window.innerHeight
 );
 
-console.log( 'document.body.scrollHeight: ' + document.body.scrollHeight );
-console.log( 'document.body.offsetHeight: ' + document.body.offsetHeight );
-console.log( 'document.body.clientHeight: ' + document.body.clientHeight );
-console.log( 'document.documentElement.scrollHeight: ' + document.documentElement.scrollHeight );
-console.log( 'document.documentElement.offsetHeight: ' + document.documentElement.offsetHeight );
-console.log( 'document.documentElement.clientHeight: ' + document.documentElement.clientHeight );
-console.log( 'Window.innerHeight: ' + window.innerHeight );
-console.log( 'Высота с учетом прокрутки: ' + scrollHeight );
+// console.log( 'document.body.scrollHeight: ' + document.body.scrollHeight );
+// console.log( 'document.body.offsetHeight: ' + document.body.offsetHeight );
+// console.log( 'document.body.clientHeight: ' + document.body.clientHeight );
+// console.log( 'document.documentElement.scrollHeight: ' + document.documentElement.scrollHeight );
+// console.log( 'document.documentElement.offsetHeight: ' + document.documentElement.offsetHeight );
+// console.log( 'document.documentElement.clientHeight: ' + document.documentElement.clientHeight );
+// console.log( 'Window.innerHeight: ' + window.innerHeight );
+// console.log( 'Высота с учетом прокрутки: ' + scrollHeight );
 //console.log("Вывод инфы:" + scrollHeight);
 
+//==================================================================================================
+// Генерация новых блоков при нажатии кнопок
+
+function Fsecondtab(options) {
+  var elem = options.elem;
+  elem.onmousedown = function() {
+    return false;
+  }
+  elem.onclick = function(event) {
+    if (event.target.closest('.Tabgroup')) {
+      if(event.target.closest('.Mbtn2')) {
+        document.getElementsByClassName('Mbtn1')[0].classList.remove('M-active');
+        document.getElementsByClassName('Mbtn2')[0].classList.add('M-active');
+        document.getElementsByClassName('content2')[0].style.display = 'none';
+        document.getElementsByClassName('content21')[0].style.display = 'inline-block';
+        // console.log("Вывод инфы:" + document.getElementsByClassName('Tabgroup')[0].style);
+        // console.log("Вывод инфы:" + document.getElementsByClassName('content21')[0].style);
+        // console.log("Вывод инфы:" + document.getElementsByClassName('Town')[0].style);
+      } 
+      if(event.target.closest('.Mbtn1')) {
+        document.getElementsByClassName('Mbtn2')[0].classList.remove('M-active');
+        document.getElementsByClassName('Mbtn1')[0].classList.add('M-active');
+        document.getElementsByClassName('content21')[0].style.display = 'none'
+        document.getElementsByClassName('content2')[0].style.display = 'inline-block';
+        // console.log("Вывод инфы:" + document.getElementsByClassName('Tabgroup')[0].style);
+        // console.log("Вывод инфы:" + document.getElementsByClassName('content2')[0].style);
+        // console.log("Вывод инфы:" + document.getElementsByClassName('Town')[0].style);
+      }
+    }
+  };
+}
+
+var secondtab = new Fsecondtab({
+  elem: document.getElementById('Featuris')
+});
 

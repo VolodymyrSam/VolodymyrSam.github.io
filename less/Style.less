@@ -370,7 +370,7 @@ button:active {
     }
 }
 
-.btn.Mbtn1 {
+.btn.Mbtn1, .btn.Mbtn2, .btn.Mbtn3 {
     border-left: 0px solid;
     border-right: 0px solid;
     color: #fff;
@@ -430,8 +430,28 @@ button:active {
     background-color: @color1;
 }
 .content2 {
+    display: inline-block;
     font-size: 14px;
     font-weight: 400;
+    span {
+        height: 44px;
+        background-color: @form_backgr;
+        font-family: OpenSans-Bold;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        line-height: 44px;
+    }
+    p {
+        color: #a4a5a8;
+        margin: 50px 0 45px 0;
+    }
+}
+.content21 {
+    position: relative;
+    display: none;
+    //width: 537px;
+    height: 330px;
     span {
         height: 44px;
         background-color: @form_backgr;
