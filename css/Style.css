@@ -392,6 +392,9 @@ button:active {
 .list2 .btn-group-vertical:hover {
   cursor: default;
 }
+.list2 .blok1 {
+  width: 100%;
+}
 .btn.Mbtn1,
 .btn.Mbtn2,
 .btn.Mbtn3 {
